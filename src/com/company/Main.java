@@ -9,8 +9,8 @@ public class Main {
 //        task2(); //было интересно решить тремя способами
 //        task2v2();
 //        task2v3();
-//        task3();
-        task4();
+        task3();
+//        task4();
 //        task5();
     }
 
@@ -61,11 +61,11 @@ public class Main {
     public static String checkVersionOfApplicationAndPrintResult(int clientOS, int clientDeviceYear, boolean isNeedPrint) {
         int currentYear = LocalDate.now().getYear();
         String result;
-        if (clientOS == 0 && currentYear - clientDeviceYear == 0) {
+        if (clientOS == 0 && currentYear - clientDeviceYear <= 0) {
             result = "Установите версию приложения для iOS по ссылке";
         } else if (clientOS == 0) {
             result = "Установите облегченную версию приложения для iOS по ссылке";
-        } else if (currentYear - clientDeviceYear != 0) {
+        } else if (currentYear - clientDeviceYear >= 1) {
             result = "Установите облегченную версию приложения для Android по ссылке";
         } else {
             result = "Установите версию мобильного приложения для Android по ссылке";
@@ -78,7 +78,7 @@ public class Main {
 
     public static void task2v2() {
         int clientOS = 1;
-        int clientDeviceYear = 2021;
+        int clientDeviceYear = 2022;
         checkVersionOfApplicationAndPrintResult(clientOS, clientDeviceYear, true);
     }
 
@@ -93,9 +93,9 @@ public class Main {
         if (deliveryDistance <= 20) {
             daysDelivery = 1;
         } else if (deliveryDistance <= 60) {
-            daysDelivery += 1;
-        } else if (deliveryDistance <= 100) {
             daysDelivery += 2;
+        } else if (deliveryDistance <= 100) {
+            daysDelivery += 3;
         }
         return daysDelivery;
     }
